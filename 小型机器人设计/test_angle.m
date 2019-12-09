@@ -1,0 +1,43 @@
+clear all
+b=arduino('COM20');
+s1=servo(b,'D9');
+s2=servo(b,'D10')
+gdata=rgb2gray(imread('img9.jpg'));
+daxiao=size(gdata)
+
+[hang,lie]=find(gdata>200);
+if(hang(floor(length(hang)/2))/daxiao(1)<0.5)
+    x_cor=1;
+else
+    x_cor=2;
+end
+if(lie(floor(length(lie)/2))/daxiao(2)<0.5)
+    y_cor=2;
+else
+    y_cor=4;
+end
+    if(y_cor==2)
+        a=2;
+    else
+        a=1
+    end
+    a=1
+if(a==1)
+    writePosition(s2,0.3);
+    writePositon(s1,0.5);
+    while(1)
+        {}
+    end
+end
+if(a==2)
+    
+    writePosition(s2,0.2);
+    writePosition(s1,0.9);
+end
+if(a==3)
+    writePosition(s2,0.2);
+    writePosition(s1,0.7);
+else
+    writePosition(s2,0.5);
+    writePosition(s1,0.8);
+end

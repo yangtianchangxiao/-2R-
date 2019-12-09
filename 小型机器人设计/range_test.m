@@ -1,0 +1,9 @@
+L1=9;
+L2=11;
+alfa=linspace(0,pi,2000);
+beta=linspace(-pi,0,2000);
+ax=L1.*cos(alfa);
+ay=L1.*sin(alfa);
+bx=ax'.*ones(2000,2000)+L2.*cos(alfa)'.*cos(beta)-L2.*sin(alfa)'.*sin(beta);
+by=ay'.*ones(2000,2000)+L2.*sin(alfa)'.*cos(beta)+L2.*cos(alfa)'.*sin(beta);
+plot(bx,by)
